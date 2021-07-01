@@ -2,9 +2,11 @@
 
 cp config.aj.h config.h
 
+PATCHDIR=patches
+
 PATCHES=$(ls patches)
 for patch in $PATCHES; do
-	git apply --verbose $patch
+	git apply --verbose $patchdir/$patch
 done
 
 make -j4
