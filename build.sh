@@ -2,10 +2,10 @@
 
 cp config.aj.h config.h
 
-# Doesnt work for the current version
-#git apply --verbose patches/st-vim.diff
-git apply --verbose patches/newterm.diff
-git apply --verbose patches/st-xresreloading-4536f46.diff
+PATCHES=$(ls patches)
+for patch in $PATCHES; do
+	git apply --verbose $patch
+done
 
 make -j4
 sudo make install
